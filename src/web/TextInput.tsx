@@ -1,4 +1,4 @@
-﻿/**
+/**
 * TextInput.tsx
 *
 * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -61,14 +61,12 @@ export class TextInput extends React.Component<Types.TextInputProps, TextInputSt
     }
 
     render() {
-        let combinedStyles = Styles.combine([_styles.defaultStyle, this.props.style]);
+        let combinedStyles = Styles.combine([_styles.defaultStyle, this.props.style]) as any;
 
         // Always hide the outline and border.
-        combinedStyles = _.extend({
-            outline: 'none',
-            border: 'none',
-            resize: 'none'
-        }, combinedStyles);
+        combinedStyles.outline = 'none';
+        combinedStyles.border = 'none';
+        combinedStyles.resize = 'none';
 
         // By default, the control is editable.
         const editable = (this.props.editable !== undefined ? this.props.editable : true);

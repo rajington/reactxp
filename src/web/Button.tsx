@@ -106,7 +106,7 @@ export class Button extends React.Component<Types.ButtonProps, {}> {
     }
 
     private _getStyles(): Types.ButtonStyleRuleSet {
-        let buttonStyles: any = _.extend.apply(_, [{}].concat(this.props.style));
+        let buttonStyles = Styles.combine(this.props.style) as any;
 
         // Specify default syle for padding only if padding is not already specified
         if (buttonStyles && buttonStyles.padding === undefined  &&
