@@ -34,7 +34,7 @@ let _styles = {
     }
 };
 
-export class TextInput extends RX.TextInput<TextInputState> {
+export class TextInput extends React.Component<Types.TextInputProps, TextInputState> {
     private _selectionStart: number = 0;
     private _selectionEnd: number = 0;
 
@@ -61,7 +61,7 @@ export class TextInput extends RX.TextInput<TextInputState> {
     }
 
     render() {
-        let combinedStyles = Styles.combine(_styles.defaultStyle, this.props.style);
+        let combinedStyles = Styles.combine([_styles.defaultStyle, this.props.style]);
 
         // Always hide the outline and border.
         combinedStyles = _.extend({
